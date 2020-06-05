@@ -46,16 +46,21 @@ export class ImageDrop {
 	handlePaste(evt) {
 		if (evt.clipboardData && evt.clipboardData.items && evt.clipboardData.items.length) {
 	      this.readFiles(evt.clipboardData.items, dataUrl => {
-	        const userAgent = navigator.userAgent; // 取得浏览器的userAgent字符串
-	        if (userAgent.indexOf('Firefox') > -1) {
-	          const selection = this.quill.getSelection();
-	          if (selection) {
-	          } else {
-	            setTimeout(() => this.insert(dataUrl), 0);
-	          }
-	        } else {
-	          setTimeout(() => this.insert(dataUrl), 0);
-	        }
+// 	        const userAgent = navigator.userAgent; // 取得浏览器的userAgent字符串
+// 	        if (userAgent.indexOf('Firefox') > -1) {
+// 	          const selection = this.quill.getSelection();
+// 	          if (selection) {
+// 	          } else {
+// 	            setTimeout(() => this.insert(dataUrl), 0);
+// 	          }
+// 	        } else {
+// 	          setTimeout(() => this.insert(dataUrl), 0);
+// 	        }
+		  const selection = this.quill.getSelection();
+		  if (selection) {
+		  } else {
+		    setTimeout(() => this.insert(dataUrl), 0);
+		  }
 	      });
 	    }
 	}
